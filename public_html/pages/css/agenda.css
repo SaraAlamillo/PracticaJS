@@ -62,6 +62,9 @@ input {
     border-bottom: 1px solid #B6BCCC;
     background: linear-gradient(#FEFEFF 0%, #E5EAF5 34%, #D4DBED 35%, #E1E6F6 100%);
 }
+#contenido .main-menu button {
+    float: right;
+}
 #contenido .main-menu li + li { 
     margin-left: 10px; 
 }

@@ -65,6 +65,12 @@ input {
     border-bottom: 1px solid #B6BCCC;
     background: linear-gradient(#FEFEFF 0%, #E5EAF5 34%, #D4DBED 35%, #E1E6F6 100%);
 }
+.calculator .main-menu button {
+        float: right;
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
 .calculator .main-menu li + li { 
     margin-left: 10px; 
 }
