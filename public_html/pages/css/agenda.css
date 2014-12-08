@@ -1,0 +1,150 @@
+/* 
+    Created on : 02-dic-2014, 19:33:01
+    Author     : 2daw
+*/
+
+ul, li, button, input {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+body, button, input {
+    color: #333;
+    font: 12px/1.2 Segoe UI, sans-serif;
+}
+
+button:not(:disabled) { 
+    cursor: pointer; 
+}
+
+li { 
+    overflow: hidden; 
+}
+input { 
+    width: 100%; 
+    outline: 0;
+    border: none;
+    background: none;
+    font-family: Consolas, monospace;
+}
+
+#contenido {
+    width: 500px; 
+    margin: 0 auto;
+    padding: 0 10px 5px;
+    border: 1px solid #999;
+    background: linear-gradient(#F0F0F0 0px, #D9E4F1 100px);
+}
+
+
+#contenido .box, #contenido button {
+    margin-bottom: 5px;
+    border: 1px solid #727F8D;
+    border-radius: 3px;
+    color: #1C3759;
+}
+
+#contenido .box { 
+    padding: 5px; 
+}
+
+#contenido .box-inset,#contenido button:not(:hover):not(:disabled) { 
+    box-shadow: inset 0 0 0 1px #fff; 
+}
+
+#contenido .main-menu {
+    margin: 0 -10px 10px;
+    padding: 1px 5px 2px;
+    border-bottom: 1px solid #B6BCCC;
+    background: linear-gradient(#FEFEFF 0%, #E5EAF5 34%, #D4DBED 35%, #E1E6F6 100%);
+}
+#contenido .main-menu li + li { 
+    margin-left: 10px; 
+}
+
+#contenido .display {
+    padding: 5px;
+    background: linear-gradient(#E6EFFB, #FFFFFF);
+}
+
+#contenido button {
+    position: relative;
+    height: 27px;
+    border: 1px solid #8797AA;
+    background: linear-gradient(#F0F6FB 0%, #E2EAF3 49%, #D5E0ED 50%, #D7E2EF 100%);
+    line-height: 25px;
+}
+
+#encabezado {
+    width: 100%;
+    height: auto;
+}
+
+#registro {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+#mostrar {
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+#mostrar input {
+    width: 40px;
+}
+
+#contenido button:hover {
+    border-color: #F5D50F;
+    background: linear-gradient(#FEF5EB 0%, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+}
+
+#contenido button:not(:disabled):active { 
+    top: 1px; 
+}
+
+#contenido button:disabled {
+    border-color: #B4C2D1;
+    background: #D9E4F1;
+}
+
+#contenido button strong { 
+    font-size: 22px; 
+}
+button:focus {
+    outline: none;
+}
+textarea {
+    width: 100%;
+    resize: none;
+    box-sizing: border-box;
+}
+
+#edColum1 {
+    width: 80%;
+    float: left;
+}
+
+#edColum2 {
+    width: 20%;
+    text-align: right;
+    float: left;
+}
+
+#edColum11 {
+    width: 30%;
+    line-height: 31px;
+    float: left;
+    text-align: right;
+}
+
+#edColum12 {
+    width: 50%;
+    float: left;
+}

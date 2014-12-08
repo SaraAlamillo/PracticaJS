@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+Autor:               Sara Alamillo Arroyo
+Fecha creación:      18/10/2014
+Última modificación: 29/10/2014
+Versión:             1.0
+-->
+<html>
+    <head>
+        <title>Calculadora</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="../js/calculadora.js"></script>
+        <link href="../css/calculadora.css" rel="stylesheet" />
+    </head>
+    <body>
+        <table class="calculator">
+            <tr>
+                <td colspan="5">
+                    <ul class="main-menu inline">
+                        <li><button onclick="window.close()">Salir</button></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="display box" onclick="
+                            alert(
+                                    'Primera pantalla: ' + document.getElementById('operacion').value
+                                    +
+                                    '\nSegunda pantalla: ' + document.getElementById('operando').value
+                                    );
+
+                         ">
+                        <input type="text" id="operacion" readonly="readonly" />
+                        <input type="text" id="operando" value="0" readonly="readonly" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button disabled>MC</button>
+                </td>
+                <td>
+                    <button disabled>MR</button>
+                </td>
+                <td>
+                    <button disabled>MS</button>
+                </td>
+                <td>
+                    <button disabled>M+</button>
+                </td>
+                <td>
+                    <button disabled>M-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="borrarUltimo()">&#8592;</button>
+                </td>
+                <td>
+                    <button onclick="borrarOperador()">CE</button>
+                </td>
+                <td>
+                    <button onclick="borrarTodo()">C</button>
+                </td>
+                <td>
+                    <button onclick="masMenos()">&#177;</button>
+                </td>
+                <td>
+                    <button onclick="raizCuadrada()">&#8730;</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="numerico" onclick="escribirNumero(7)">7</button>
+                </td>
+                <td>
+                    <button class="numerico" onclick="escribirNumero(8)">8</button>
+                </td>
+                <td>
+                    <button class="numerico" onclick="escribirNumero(9)">9</button>
+                </td>
+                <td>
+                    <button onclick="escribirSigno('/')">/</button>
+                </td>
+                <td>
+                    <button onclick="porcentaje()">%</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="numerico" onclick="escribirNumero(4)">4</button>
+                </td>
+                <td>
+                    <button class="numerico" onclick="escribirNumero(5)">5</button>
+                </td>
+                <td>
+                    <button class="numerico" onclick="escribirNumero(6)">6</button>
+                </td>
+                <td>
+                    <button onclick="escribirSigno('*')">*</button>
+                </td>
+                <td>
+                    <button onclick="fraccion()">1/x</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="numerico" onclick="escribirNumero(1)">1</button>
+                </td>
+                <td>
+                    <button class="numerico" onclick="escribirNumero(2)">2</button>
+                </td>
+                <td>
+                    <button class="numerico" onclick="escribirNumero(3)">3</button>
+                </td>
+                <td>
+                    <button onclick="escribirSigno('-')">-</button>
+                </td>
+                <td rowspan="2">
+                    <button class="row2" onclick="igual()">
+                        <strong>=</strong>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button class="numerico" onclick="escribirNumero(0)">0</button>
+                </td>
+                <td>
+                    <button onclick="coma()">.</button>
+                </td>
+                <td>
+                    <button onclick="escribirSigno('+')">+</button>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,117 @@
+/*
+ * Autor:               Sara Alamillo Arroyo
+ * Fecha creación:      18/10/2014
+ * Última modificación: 28/10/2014
+ * Versión:             1.0
+ */
+
+/* RESET */
+ul, li, button, input {
+    margin: 0;
+    padding: 0;
+}
+
+/* TAGS */
+body, button, input {
+    color: #333;
+    font: 12px/1.2 Segoe UI, sans-serif;
+}
+
+button:not(:disabled) { 
+    cursor: pointer; 
+}
+
+/* CLASSES */
+li { 
+    overflow: hidden; 
+}
+input { 
+    width: 100%; 
+    font-size: 16px; 
+    outline: 0;
+    border: none;
+    background: none;
+    font-family: Consolas, monospace;
+}
+
+/* CALCULATOR */
+.calculator {
+    width: 200px; 
+    margin: 0 auto;
+    padding: 0 10px 5px;
+    border: 1px solid #999;
+    background: linear-gradient(#F0F0F0 0px, #D9E4F1 100px);
+}
+
+
+.calculator .box, .calculator button {
+    margin-bottom: 5px;
+    border: 1px solid #727F8D;
+    border-radius: 3px;
+    color: #1C3759;
+}
+
+.calculator .box { 
+    padding: 5px; 
+}
+
+.calculator .box-inset,.calculator button:not(:hover):not(:disabled) { 
+    box-shadow: inset 0 0 0 1px #fff; 
+}
+
+.calculator .main-menu {
+    margin: 0 -10px 10px;
+    padding: 1px 5px 2px;
+    border-bottom: 1px solid #B6BCCC;
+    background: linear-gradient(#FEFEFF 0%, #E5EAF5 34%, #D4DBED 35%, #E1E6F6 100%);
+}
+.calculator .main-menu li + li { 
+    margin-left: 10px; 
+}
+
+.calculator .display {
+    padding: 15px 5px 5px;
+    background: linear-gradient(#E6EFFB, #FFFFFF);
+}
+
+.calculator .display input { 
+    text-align: right; 
+}
+
+.calculator button {
+    position: relative;
+    height: 27px;
+    border: 1px solid #8797AA;
+    background: linear-gradient(#F0F6FB 0%, #E2EAF3 49%, #D5E0ED 50%, #D7E2EF 100%);
+    line-height: 25px;
+    width: 100%; 
+}
+.calculator .numerico {
+    background: linear-gradient(#F7FBFF 0%, #EDF3F8 49%, #E7EDF5 50%, #F3FBFF 100%);
+    font-size: 15px;
+}
+
+.calculator button:hover {
+    border-color: #F5D50F;
+    background: linear-gradient(#FEF5EB 0%, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+}
+
+.calculator button:not(:disabled):active { 
+    top: 1px; 
+}
+
+.calculator button:disabled {
+    border-color: #B4C2D1;
+    background: #D9E4F1;
+}
+
+.calculator button.row2 { 
+    height: 65px; 
+}
+
+.calculator button strong { 
+    font-size: 22px; 
+}
+button:focus {
+    outline: none;
+}

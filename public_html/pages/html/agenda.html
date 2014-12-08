@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prueba Agenda</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../css/agenda.css" rel="stylesheet" type="text/css"/>
+        <script src="../js/agenda.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="contenido">
+            <ul class="main-menu inline">
+                        <li><button onclick="datosPrueba()">Inicializar</button><button onclick="window.close()">Salir</button></li>
+                    </ul>
+            <br />
+            <div id="calculadora">
+                <div id="encabezado">
+                    <div id="registro">
+                        <fieldset id="fRegistro" disabled="disabled">
+                            <legend>Registro</legend>
+                            <button id="bPrimero" onclick="irPrimero()"><<</button>
+                            <button id="bAnterior" onclick="irAnterior()"><</button>
+                            <span id="posicionActual">x</span> de <span id="posicionFinal">x</span>
+                            <button id="bSiguiente" onclick="irSiguiente()">></button>
+                            <button id="bUltimo" onclick="irUltimo()">>></button>
+                        </fieldset>
+                    </div>
+                    <div id="mostrar">
+                        <fieldset>
+                            <legend>Mostrar</legend>
+                            Entrada
+                            <input class="display box"  id="entradaBuscada" type="number" min="1" max="100" value=""/>
+                            <button id="bVer" onclick="ver()" disabled="disabled">Ver</button>
+                        </fieldset>
+                    </div>
+                </div>
+                <div id="ediccion">
+                    <fieldset>
+                        <legend>Edicción</legend>
+                        <div id="edColum1">
+                            <div id="edColum11">
+                                <label for="nombre">Nombre</label> <br />
+                                <label for="apellidos">Apellidos</label> <br />
+                                <label for="telefono">Teléfono</label> <br />
+                                <label for="nacimiento">Fecha de nacimiento</label> <br />
+                            </div>
+                            <div id="edColum12">
+                                <input class="display box" type="text" id="nombre" name="nombre" value="" /> <br />
+                                <input class="display box" type="text" id="apellidos" name="apellidos" value="" /> <br />
+                                <input class="display box" type="tel" id="telefono" name="telefono" value="" /> <br />
+                                <input class="display box" type="date" id="nacimiento" name="nacimiento" value="" /> <br />
+                            </div>
+                        </div>
+                        <div id="edColum2">
+                            <button onclick="nuevo()">Nuevo</button> <br />
+                            <button id="bModificar" onclick="modificar()" disabled="disabled">Modificar</button> <br />
+                            <button id="bBorrar" onclick="borrar()" disabled="disabled">Borrar</button> <br />
+                            <button id="bBuscar" onclick="buscar()" disabled="disabled">Buscar</button> <br />
+                        </div>
+                    </fieldset>
+                </div>
+                <div id="cuadroResumen">
+                    <fieldset>
+                        <legend>Resumen</legend>
+                        <textarea class="display box" id="resumen" readonly="readonly" rows="10"></textarea>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
