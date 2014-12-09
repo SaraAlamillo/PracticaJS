@@ -240,6 +240,9 @@ function activarBotones() {
  * Añade cinco registros a la agenda
  */
 function datosPrueba() {
+    if ((tamanioAgenda - listaPersonas.length) < 5) {
+        alert("No hay espacio para los datos de prueba");
+    } else {
     var p = new Persona();
     p.apellidos = "Arroyo García";
     p.nombre = "Concepción";
@@ -270,6 +273,7 @@ function datosPrueba() {
     p.telefono = "658795194";
     p.nacimiento = "1990-09-20";
     listaPersonas.push(p);
+}
 
     actualizarPosiciones(listaPersonas.length - 1);
 }
