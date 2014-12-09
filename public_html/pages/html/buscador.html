@@ -15,10 +15,9 @@ Versión:             1.0
     </head>
     <body>
         <div id="contenido">
-            <div id="salir">
-                <button onclick="window.close()">Salir</button>
-            </div>
-            <br />
+            <ul class="main-menu inline">
+                <li><button onclick="window.close()">Salir</button></li>
+            </ul>
             <div id="calculadora">
                 <div id="ediccion">
                     <fieldset>
@@ -31,10 +30,10 @@ Versión:             1.0
                                 <label for="nacimiento">Fecha de nacimiento</label> <br />
                             </div>
                             <div id="edColum12">
-                                <input type="text" id="nombre" name="nombre" value="" /> <br />
-                                <input type="text" id="apellidos" name="apellidos" value="" /> <br />
-                                <input type="tel" id="telefono" name="telefono" value="" /> <br />
-                                <input type="date" id="nacimiento" name="nacimiento" value="" /> <br />
+                                <input class="display box" type="text" id="nombre" name="nombre" value="" /> <br />
+                                <input class="display box" type="text" id="apellidos" name="apellidos" value="" /> <br />
+                                <input class="display box" type="tel" id="telefono" name="telefono" value="" /> <br />
+                                <input class="display box" type="date" id="nacimiento" name="nacimiento" value="" /> <br />
                             </div>
                         </div>
                         <div id="edColum2">
@@ -45,7 +44,7 @@ Versión:             1.0
                 <div id="cuadroResumen">
                     <fieldset>
                         <legend>Resultado</legend>
-                        <textarea id="busqueda" readonly="readonly" rows="10"></textarea>
+                        <textarea class="display box" id="busqueda" readonly="readonly" rows="10"></textarea>
                     </fieldset>
                 </div>
             </div>

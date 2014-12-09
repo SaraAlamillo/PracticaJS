@@ -195,7 +195,8 @@ function borrar() {
  * Abre la ventana del buscador
  */
 function buscar() {
-    var buscador = window.open("buscador.html", "Buscador", 'width=500, height=500');
+    var buscador = window.open("buscador.html", "Buscador", 'width=550px, height=510px, left = 500 ,top= 90');
+    buscador.focus();
 }
 
 /**
