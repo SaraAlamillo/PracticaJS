@@ -36,22 +36,22 @@ function actualizarPosiciones(posActual) {
     actualizarEdiccion();
     actualizarRegistro();
     activarBotones();
-    
+
 }
 
 function actualizarRegistro() {
-    
+
     document.getElementById("bPrimero").disabled = false;
     document.getElementById("bAnterior").disabled = false;
     document.getElementById("bSiguiente").disabled = false;
     document.getElementById("bUltimo").disabled = false;
     if (posicionActual == "0") {
-    document.getElementById("bPrimero").disabled = true;
-    document.getElementById("bAnterior").disabled = true;
-}
-if (posicionFinal == posicionActual) {
-    document.getElementById("bSiguiente").disabled = true;
-    document.getElementById("bUltimo").disabled = true;
+        document.getElementById("bPrimero").disabled = true;
+        document.getElementById("bAnterior").disabled = true;
+    }
+    if (posicionFinal == posicionActual) {
+        document.getElementById("bSiguiente").disabled = true;
+        document.getElementById("bUltimo").disabled = true;
     }
 }
 
@@ -67,12 +67,12 @@ function actualizarResumen() {
     document.getElementById("resumen").innerHTML = "RESUMEN AGENDA\n";
     document.getElementById("resumen").innerHTML += "==============\n";
     document.getElementById("resumen").innerHTML += "\n";
-    
+
     for (var aux = 0; aux <= posicionFinal; aux++) {
         var persona = listaPersonas[aux];
         document.getElementById("resumen").innerHTML += eval(aux + 1) + ". " + persona.nombre + " " + persona.apellidos + " -- " + persona.telefono + " -- " + persona.nacimiento.toString() + "\n";
     }
-    
+
     document.getElementById("resumen").innerHTML += "\n";
     document.getElementById("resumen").innerHTML += "Total entradas almacendas: " + listaPersonas.length + "\n";
     document.getElementById("resumen").innerHTML += "Espacio libre: " + eval(tamanioAgenda - listaPersonas.length) + "\n";
@@ -107,8 +107,8 @@ function ver() {
     if (nuevaPosicion < 1 || nuevaPosicion > posicionFinal) {
         alert("El número de registro no existe");
     } else {
-    nuevaPosicion--;
-    actualizarPosiciones(nuevaPosicion);
+        nuevaPosicion--;
+        actualizarPosiciones(nuevaPosicion);
     }
 }
 
@@ -120,7 +120,7 @@ function borrar() {
     } else {
         nuevaPosicion = posicionActual;
     }
-    actualizarPosiciones(nuevaPosicion);    
+    actualizarPosiciones(nuevaPosicion);
 }
 
 function buscar() {
@@ -134,7 +134,7 @@ function activarBotones() {
         document.getElementById("bBorrar").disabled = false;
         document.getElementById("bBuscar").disabled = false;
         document.getElementById("bVer").disabled = false;
-    } 
+    }
     if (document.getElementById("posicionFinal").innerHTML == "0") {
         document.getElementById("fRegistro").disabled = true;
         document.getElementById("bModificar").disabled = true;
@@ -175,6 +175,6 @@ function datosPrueba() {
     p.telefono = "658795194";
     p.nacimiento = "1990-09-20";
     listaPersonas.push(p);
-    
+
     actualizarPosiciones(listaPersonas.length - 1);
 }

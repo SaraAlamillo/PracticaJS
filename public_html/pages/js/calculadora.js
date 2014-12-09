@@ -39,7 +39,7 @@ function guardarOperador() {
 function borrarUltimo() {
     var operando = document.getElementById("operando").value;
     var resto = operando.substr(0, operando.length - 1);
-    
+
     if (resto == "" || resto == "-") {
         document.getElementById("operando").value = 0;
     } else {
@@ -64,7 +64,7 @@ function masMenos() {
 
 function coma() {
     var coma = document.getElementById("operando").value.indexOf(".");
-    
+
     if (coma == -1) {
         document.getElementById("operando").value += ".";
     }
@@ -72,14 +72,14 @@ function coma() {
 
 function igual() {
     guardarOperador();
-    
+
     var operacion = document.getElementById("operacion").value;
     operacion = operacion.replace("√", "Math.sqrt");
-    
+
     var resultado = eval(operacion);
-        
+
     borrarTodo();
-    
+
     document.getElementById("operando").value = resultado;
 }
 
