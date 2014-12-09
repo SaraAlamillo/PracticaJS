@@ -1,9 +1,9 @@
 /* 
-Autor:               Sara Alamillo Arroyo
-Fecha creación:      02/12/2014
-Última modificación: 09/12/2014
-Versión:             1.0
-*/
+ Autor:               Sara Alamillo Arroyo
+ Fecha creación:      02/12/2014
+ Última modificación: 09/12/2014
+ Versión:             1.0
+ */
 
 /**
  * Contiene el listado de personas actualmente en la agenda
@@ -27,7 +27,7 @@ var posicionFinal;
  * Contiene el tamaño máximo de la agenda
  * @type Number
  */
-var tamanioAgenda = 100;
+var tamanioAgenda = 1;
 
 /**
  * Declaración del objeto Persona
@@ -59,9 +59,13 @@ function fechaActual() {
  * Añade un nuevo registro a la agenda
  */
 function nuevo() {
-    var nuevaPersona = new Persona();
-    listaPersonas.push(nuevaPersona);
-    actualizarPosiciones(eval(listaPersonas.length - 1));
+    if (listaPersonas.length >= tamanioAgenda) {
+        alert("Se ha llegado al límite de la agenda");
+    } else {
+        var nuevaPersona = new Persona();
+        listaPersonas.push(nuevaPersona);
+        actualizarPosiciones(eval(listaPersonas.length - 1));
+    }
 }
 
 /**
@@ -100,10 +104,17 @@ function actualizarRegistro() {
  * Establece los campos de edicción en función de la posición actual
  */
 function actualizarEdiccion() {
-    document.getElementById("nombre").value = listaPersonas[posicionActual].nombre;
-    document.getElementById("apellidos").value = listaPersonas[posicionActual].apellidos;
-    document.getElementById("nacimiento").value = listaPersonas[posicionActual].nacimiento;
-    document.getElementById("telefono").value = listaPersonas[posicionActual].telefono;
+    if (posicionActual == "-1") {
+        document.getElementById("nombre").value = "";
+        document.getElementById("apellidos").value = "";
+        document.getElementById("nacimiento").value = "";
+        document.getElementById("telefono").value = "";
+    } else {
+        document.getElementById("nombre").value = listaPersonas[posicionActual].nombre;
+        document.getElementById("apellidos").value = listaPersonas[posicionActual].apellidos;
+        document.getElementById("nacimiento").value = listaPersonas[posicionActual].nacimiento;
+        document.getElementById("telefono").value = listaPersonas[posicionActual].telefono;
+    }
     actualizarResumen();
 }
 
@@ -115,14 +126,18 @@ function actualizarResumen() {
     document.getElementById("resumen").innerHTML += "==============\n";
     document.getElementById("resumen").innerHTML += "\n";
 
-    for (var aux = 0; aux <= posicionFinal; aux++) {
-        var persona = listaPersonas[aux];
-        document.getElementById("resumen").innerHTML += eval(aux + 1) + ". " + persona.nombre + " " + persona.apellidos + " -- " + persona.telefono + " -- " + persona.nacimiento.toString() + "\n";
-    }
+    if (posicionFinal != "-1") {
+        for (var aux = 0; aux <= posicionFinal; aux++) {
+            var persona = listaPersonas[aux];
+            document.getElementById("resumen").innerHTML += eval(aux + 1) + ". " + persona.nombre + " " + persona.apellidos + " -- " + persona.telefono + " -- " + persona.nacimiento.toString() + "\n";
+        }
 
-    document.getElementById("resumen").innerHTML += "\n";
-    document.getElementById("resumen").innerHTML += "Total entradas almacendas: " + listaPersonas.length + "\n";
-    document.getElementById("resumen").innerHTML += "Espacio libre: " + eval(tamanioAgenda - listaPersonas.length) + "\n";
+        document.getElementById("resumen").innerHTML += "\n";
+        document.getElementById("resumen").innerHTML += "Total entradas almacendas: " + listaPersonas.length + "\n";
+        document.getElementById("resumen").innerHTML += "Espacio libre: " + eval(tamanioAgenda - listaPersonas.length) + "\n";
+    } else {
+        document.getElementById("resumen").innerHTML += "No existen datos en la agenda\n";
+    }
 }
 
 /**
@@ -181,14 +196,16 @@ function ver() {
  * Elimina el registro actual de la agenda
  */
 function borrar() {
-    listaPersonas.splice(posicionActual, 1);
-    var nuevaPosicion;
-    if (posicionActual == posicionFinal) {
-        nuevaPosicion = eval(posicionActual - 1);
-    } else {
-        nuevaPosicion = posicionActual;
+    if (posicionActual != "-1") {
+        listaPersonas.splice(posicionActual, 1);
+        var nuevaPosicion;
+        if (posicionActual == posicionFinal) {
+            nuevaPosicion = eval(posicionActual - 1);
+        } else {
+            nuevaPosicion = posicionActual;
+        }
+        actualizarPosiciones(nuevaPosicion);
     }
-    actualizarPosiciones(nuevaPosicion);
 }
 
 /**
@@ -210,7 +227,7 @@ function activarBotones() {
         document.getElementById("bBuscar").disabled = false;
         document.getElementById("bVer").disabled = false;
     }
-    if (document.getElementById("posicionFinal").innerHTML == "0") {
+    if (document.getElementById("posicionActual").innerHTML == "0") {
         document.getElementById("fRegistro").disabled = true;
         document.getElementById("bModificar").disabled = true;
         document.getElementById("bBorrar").disabled = true;
