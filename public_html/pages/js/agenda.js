@@ -27,7 +27,7 @@ var posicionFinal;
  * Contiene el tamaño máximo de la agenda
  * @type Number
  */
-var tamanioAgenda = 1;
+var tamanioAgenda = 100;
 
 /**
  * Declaración del objeto Persona
