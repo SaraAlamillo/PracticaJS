@@ -1,8 +1,37 @@
+/* 
+Autor:               Sara Alamillo Arroyo
+Fecha creación:      02/12/2014
+Última modificación: 09/12/2014
+Versión:             1.0
+*/
+
+/**
+ * Contiene el listado de personas actualmente en la agenda
+ * @type Array
+ */
 var listaPersonas = [];
+
+/**
+ * Contiene la posición actual en la que está la agenda
+ * @type Number
+ */
 var posicionActual;
+
+/**
+ * Contiene la última posición de la agenda
+ * @type Number
+ */
 var posicionFinal;
+
+/**
+ * Contiene el tamaño máximo de la agenda
+ * @type Number
+ */
 var tamanioAgenda = 100;
 
+/**
+ * Declaración del objeto Persona
+ */
 function Persona() {
     this.nombre = "";
     this.apellidos = "";
@@ -10,6 +39,10 @@ function Persona() {
     this.telefono = "";
 }
 
+/**
+ * Devuelve la fecha actual del sistema
+ * @returns String Fecha actual
+ */
 function fechaActual() {
     var fechaActual = new Date;
     var year = fechaActual.getFullYear();
@@ -22,12 +55,19 @@ function fechaActual() {
     return year + "-" + mes + "-" + dia;
 }
 
+/**
+ * Añade un nuevo registro a la agenda
+ */
 function nuevo() {
     var nuevaPersona = new Persona();
     listaPersonas.push(nuevaPersona);
     actualizarPosiciones(eval(listaPersonas.length - 1));
 }
 
+/**
+ * Cambia la posición actual por la dada
+ * @param Number posActual Nueva posición de la agenda
+ */
 function actualizarPosiciones(posActual) {
     posicionActual = posActual;
     document.getElementById("posicionActual").innerHTML = eval(posicionActual + 1);
@@ -38,9 +78,10 @@ function actualizarPosiciones(posActual) {
     activarBotones();
 
 }
-
+/**
+ * Establece los controles del registro según la posición actual
+ */
 function actualizarRegistro() {
-
     document.getElementById("bPrimero").disabled = false;
     document.getElementById("bAnterior").disabled = false;
     document.getElementById("bSiguiente").disabled = false;
@@ -55,6 +96,9 @@ function actualizarRegistro() {
     }
 }
 
+/**
+ * Establece los campos de edicción en función de la posición actual
+ */
 function actualizarEdiccion() {
     document.getElementById("nombre").value = listaPersonas[posicionActual].nombre;
     document.getElementById("apellidos").value = listaPersonas[posicionActual].apellidos;
@@ -63,6 +107,9 @@ function actualizarEdiccion() {
     actualizarResumen();
 }
 
+/**
+ * Muestra todos los datos de todas las personas en un área de texto
+ */
 function actualizarResumen() {
     document.getElementById("resumen").innerHTML = "RESUMEN AGENDA\n";
     document.getElementById("resumen").innerHTML += "==============\n";
@@ -78,6 +125,9 @@ function actualizarResumen() {
     document.getElementById("resumen").innerHTML += "Espacio libre: " + eval(tamanioAgenda - listaPersonas.length) + "\n";
 }
 
+/**
+ * Modifica los campos del registro actual
+ */
 function modificar() {
     listaPersonas[posicionActual].nombre = document.getElementById("nombre").value;
     listaPersonas[posicionActual].apellidos = document.getElementById("apellidos").value;
@@ -86,22 +136,37 @@ function modificar() {
     actualizarResumen();
 }
 
+/**
+ * Cambia la posición de la agenda a la primera
+ */
 function irPrimero() {
     actualizarPosiciones("0");
 }
 
+/**
+ * Retrocede una posición en la agenda respecto a la actual
+ */
 function irAnterior() {
     actualizarPosiciones(posicionActual - 1);
 }
 
+/**
+ * Avanza ua posción en la agenda respecto a la actual
+ */
 function irSiguiente() {
     actualizarPosiciones(posicionActual + 1);
 }
 
+/**
+ * Cambia la posición actual de la agenda a la última
+ */
 function irUltimo() {
     actualizarPosiciones(posicionFinal);
 }
 
+/**
+ * Cambia la posición de la agenda a un registro dado
+ */
 function ver() {
     var nuevaPosicion = document.getElementById("entradaBuscada").value;
     if (nuevaPosicion < 1 || nuevaPosicion > posicionFinal) {
@@ -112,6 +177,9 @@ function ver() {
     }
 }
 
+/**
+ * Elimina el registro actual de la agenda
+ */
 function borrar() {
     listaPersonas.splice(posicionActual, 1);
     var nuevaPosicion;
@@ -123,10 +191,16 @@ function borrar() {
     actualizarPosiciones(nuevaPosicion);
 }
 
+/**
+ * Abre la ventana del buscador
+ */
 function buscar() {
-    var buscador = window.open("buscador.html", "Buscador", 'width=500, height=500')
+    var buscador = window.open("buscador.html", "Buscador", 'width=500, height=500');
 }
 
+/**
+ * Activa o desactiva botones en función de la posición actual
+ */
 function activarBotones() {
     if (document.getElementById("posicionFinal").innerHTML >= 1) {
         document.getElementById("fRegistro").disabled = false;
@@ -144,6 +218,9 @@ function activarBotones() {
     }
 }
 
+/**
+ * Añade cinco registros a la agenda
+ */
 function datosPrueba() {
     var p = new Persona();
     p.apellidos = "Arroyo García";

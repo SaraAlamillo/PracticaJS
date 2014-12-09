@@ -1,5 +1,19 @@
+/* 
+Autor:               Sara Alamillo Arroyo
+Fecha creación:      05/12/2014
+Última modificación: 09/12/2014
+Versión:             1.0
+*/
+
+/**
+ * Contiene el listado de personas actualmente en la agenda
+ * @type Array
+ */
 var listado = window.opener.listaPersonas;
 
+/**
+ * Busca todas las personas que coincidan con los criterios dados
+ */
 function buscar() {
     var nombre = document.getElementById("nombre").value;
     var apellidos = document.getElementById("apellidos").value;
@@ -18,6 +32,9 @@ function buscar() {
     mostrarResultados(resultados);
 }
 
+/**
+ * Muestra los resultados de la búsqueda de personas
+ */
 function mostrarResultados(resultados) {
     document.getElementById("busqueda").innerHTML = "RESULTADOS DE LA BÚSQUEDA\n";
     document.getElementById("busqueda").innerHTML += "========================\n";
