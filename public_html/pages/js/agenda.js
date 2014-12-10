@@ -10,6 +10,35 @@
  * @type Array
  */
 var listaPersonas = [];
+/*
+function cargaLista() {
+    if (localStorage.getItem("listaPersonas")) {
+        var listado = localStorage.getItem("listaPersonas");
+        var registros = listado.split("|");
+        for (var aux = 0; aux < registros.length; aux++) {
+            var campos = registros[aux].split(",");
+            var persona = new Persona();
+            persona.nombre = campos[0];
+            persona.apellidos = campos[1];
+            persona.nacimiento = campos[2];
+            persona.telefono = campos[3];
+            listaPersonas.push(persona);
+        }
+    }
+
+}
+function guardaLista() {
+    if (!localStorage.getItem("listaPersonas")) {
+        localStorage.setItem("listaPersonas", "prueba");
+    }
+    var registros = [];
+    for (var aux = 0; aux < listaPersonas.length; aux++) {
+        registros.push(listaPersonas[aux].join(","));
+    }
+    var cadenaParaGuardar = registros.join("|");
+    localStorage["listaPersonas"] = cadenaParaGuardar;
+}
+*/
 
 /**
  * Contiene la posición actual en la que está la agenda
@@ -243,37 +272,37 @@ function datosPrueba() {
     if ((tamanioAgenda - listaPersonas.length) < 5) {
         alert("No hay espacio para los datos de prueba");
     } else {
-    var p = new Persona();
-    p.apellidos = "Arroyo García";
-    p.nombre = "Concepción";
-    p.telefono = "959047215";
-    p.nacimiento = "1962-05-19";
-    listaPersonas.push(p);
-    var p = new Persona();
-    p.apellidos = "Alamillo Marín";
-    p.nombre = "Francisco Román";
-    p.telefono = "65242185";
-    p.nacimiento = "1962-05-20";
-    listaPersonas.push(p);
-    var p = new Persona();
-    p.apellidos = "Alamillo Arroyo";
-    p.nombre = "Celia";
-    p.telefono = "619876032";
-    p.nacimiento = "1987-01-25";
-    listaPersonas.push(p);
-    var p = new Persona();
-    p.apellidos = "Alamillo Arroyo";
-    p.nombre = "Sara";
-    p.telefono = "695121935";
-    p.nacimiento = "1993-05-23";
-    listaPersonas.push(p);
-    var p = new Persona();
-    p.apellidos = "Carrasco Jiménez";
-    p.nombre = "Fernando";
-    p.telefono = "658795194";
-    p.nacimiento = "1990-09-20";
-    listaPersonas.push(p);
-}
+        var p = new Persona();
+        p.apellidos = "Arroyo García";
+        p.nombre = "Concepción";
+        p.telefono = "959047215";
+        p.nacimiento = "1962-05-19";
+        listaPersonas.push(p);
+        var p = new Persona();
+        p.apellidos = "Alamillo Marín";
+        p.nombre = "Francisco Román";
+        p.telefono = "65242185";
+        p.nacimiento = "1962-05-20";
+        listaPersonas.push(p);
+        var p = new Persona();
+        p.apellidos = "Alamillo Arroyo";
+        p.nombre = "Celia";
+        p.telefono = "619876032";
+        p.nacimiento = "1987-01-25";
+        listaPersonas.push(p);
+        var p = new Persona();
+        p.apellidos = "Alamillo Arroyo";
+        p.nombre = "Sara";
+        p.telefono = "695121935";
+        p.nacimiento = "1993-05-23";
+        listaPersonas.push(p);
+        var p = new Persona();
+        p.apellidos = "Carrasco Jiménez";
+        p.nombre = "Fernando";
+        p.telefono = "658795194";
+        p.nacimiento = "1990-09-20";
+        listaPersonas.push(p);
+    }
 
     actualizarPosiciones(listaPersonas.length - 1);
 }
